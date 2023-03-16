@@ -1,15 +1,17 @@
 #include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
 
 struct Node {
-    int val,
-    Node *link
+    int data;
+    struct Node *link;
 };
 
-Node *head = NULL;
+struct Node *head = NULL;
 
-void addNode(int val);
-void deleteNode(int val);
-bool searchNode(int val);
+void addNode(int data);
+void deleteNode(int data);
+bool searchNode(int data);
 int size();
 void printList();
 
@@ -23,10 +25,10 @@ int main(){
 	addNode(9);
 
 	printList();
-	printf(size());
-	printf(searchNode(5));
-	printf(deleteNode(5));
-	printf(searchNode(5));
+	printf("%d", size());
+	printf("%d", searchNode(5));
+	deleteNode(5);
+	printf("%d", searchNode(5));
 
 	printList();
 
@@ -34,7 +36,7 @@ int main(){
 }
 
 void addNode(int data){
-	Node *temp = malloc(sizeof(struct Node));
+	struct Node *temp = malloc(sizeof(struct Node));
 	if (head == NULL){
 		temp->data = data;
 		temp->link = NULL;
@@ -48,8 +50,8 @@ void addNode(int data){
 }
 
 void deleteNode(int data){
-	Node *temp = head;
-	Node *prevNode = NULL;
+	struct Node *temp = head;
+	struct Node *prevNode = NULL;
 	while(temp->link != NULL){
 		if (temp->data == data){
 			prevNode->link = temp->link;
@@ -61,7 +63,7 @@ void deleteNode(int data){
 }
 
 bool searchNode(int data){
-	Node *temp = head;
+	struct Node *temp = head;
 	bool val = false;
 	while(temp->link != NULL){
 		if (temp->data == data){
@@ -74,7 +76,7 @@ bool searchNode(int data){
 }
 
 int size(){
-	Node *temp = head;
+	struct Node *temp = head;
 	int counter = 0;
 	while(temp->link != NULL){
 		temp = temp->link;
@@ -85,10 +87,10 @@ int size(){
 }
 
 void printList(){
-	Node *temp = head;
+	struct Node *temp = head;
 	while(temp->link != NULL){
-		printf(temp->data);
+		printf("%d", temp->data);
 		temp = temp->link;
 	}
-	printf(temp->data);	
+	printf("%d", temp->data);	
 }
