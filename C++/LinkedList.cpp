@@ -51,7 +51,7 @@ void add(int data){
 void deleteNode(int data){
 	Node *temp = head;
 	Node *prevNode = NULL;
-	while(temp->link != NULL){
+	while(temp != NULL){
 		if (temp->data == data){
 			prevNode->link = temp->link;
 			delete temp;
@@ -64,7 +64,7 @@ void deleteNode(int data){
 bool search(int data){
 	Node *temp = head;
 	bool val = false;
-	while(temp->link != NULL){
+	while(temp != NULL){
 		if (temp->data == data){
 			val = true;
 			break;
@@ -77,19 +77,17 @@ bool search(int data){
 int size(){
 	Node *temp = head;
 	int counter = 0;
-	while(temp->link != NULL){
+	while(temp != NULL){
 		temp = temp->link;
 		counter++;
 	}
-	counter++;
 	return counter;
 }
 
 void printList(){
 	Node *temp = head;
-	while(temp->link != NULL){
+	while(temp != NULL){
 		cout << temp->data << endl;
 		temp = temp->link;
 	}
-	cout << temp->data << endl;	
 }
