@@ -2,17 +2,16 @@ package main
 import "fmt"
 
 type Node struct {
-	data string
+	data int
 	link *Node
 }
 
 var head *Node
 
 func addNode(data int){
-	if head == Node{} {
-		head = &Node{data, &Node{}}
-	}
-	else {
+	if head == nil {
+		head = &Node{data, (&Node{})}
+	} else {
 		temp := &Node{data, head}
 		head = temp
 	}
@@ -22,11 +21,11 @@ func deleteNode(data int){
 	temp := head
 	prev_node := head
 	for {
-		if temp == Node{} {
+		if temp == nil {
 			break
 		}
 		if temp.data == data {
-			prev_node = temp.link
+			prev_node.link = temp.link
 		}
 		prev_node = temp
 		temp = temp.link
@@ -37,7 +36,7 @@ func findNode(data int) bool {
 	temp := head
 	var flag bool = false
 	for {
-		if temp == Node{} {
+		if temp == nil {
 			break
 		}
 		if temp.data == data {
@@ -52,42 +51,39 @@ func size() int {
 	temp := head
 	var counter int = 0
 	for {
-		if temp == Node{} {
+		if temp == nil {
 			break
 		}
-		fmt.Println(temp.data)
+		counter++
 		temp = temp.link
 	}
-	fmt.Println(temp.data)
 	return counter
 }
 
 func printList(){
 	temp := head
-	var counter int = 0
 	for {
-		if temp == Node{} {
+		if temp == nil {
 			break
 		}
+		fmt.Println(temp.data)
 		temp = temp.link
-		counter++
 	}
-	counter++
-	return counter
 }
 
 func main(){
-	addNode(1);
-	addNode(3);
-	addNode(5);
-	addNode(7);
-	addNode(9);
+	addNode(1)
+	addNode(3)
+	addNode(5)
+	addNode(7)
+	addNode(9)
 
-	printList();
-	printf(size());
-	printf(findNode(5));
-	printf(deleteNode(5));
-	printf(findNode(5));
+	printList()
 
-	printList();
+	fmt.Println(size())
+	fmt.Println(findNode(5))
+	deleteNode(5)
+	fmt.Println(findNode(5))
+
+	printList()
 }

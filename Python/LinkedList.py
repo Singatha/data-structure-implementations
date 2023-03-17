@@ -3,57 +3,58 @@ class Node:
         self.data = data
         self.link = node
     
-    def set_link(node):
+    def set_link(self, node):
         self.link = node
 
-    def get_link():
+    def get_link(self):
         return self.link
 
 class LinkedList:
     def __init__(self):
         self.head = None
 
-    def add_node(data):
+    def add_node(self, data):
         temp = Node(data)
-        if self.head is None:
+        if self.head == None:
             self.head = temp
         else:
-            temp.node = self.head
+            temp.link = self.head
             self.head = temp
 
-    def delete_node(data):
+    def delete_node(self, data):
         temp = self.head
-        prev_node = self.head
+        prev_node = None
         while temp != None:
             if temp.data == data:
                 prev_node.link = temp.link
             prev_node = temp
             temp = temp.link
 
-    def find_node(data):
+    def find_node(self, data):
         temp = self.head
         flag = False
         while temp != None:
             if temp.data == data:
                 flag = True
+            temp = temp.link
         return flag
 
-    def print_list():
+    def print_list(self):
         temp = self.head
         while temp != None:
             print(temp.data)
-        print(temp.data)
+            temp = temp.link
 
-    def size():
+    def size(self):
         temp = self.head
         counter = 0
         while temp != None:
             temp = temp.link
             counter += 1
-        counter += 1
         return counter
 
 def main():
+    print("Hello, There!")
     linked_list = LinkedList()
 
     linked_list.add_node(1)
@@ -69,3 +70,7 @@ def main():
     linked_list.delete_node(5)
     print(linked_list.find_node(5))
     linked_list.print_list()
+
+
+if __name__ == "__main__":
+    main()

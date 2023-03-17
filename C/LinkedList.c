@@ -16,7 +16,7 @@ int size();
 void printList();
 
 int main(){
-    printf("Hello There !");
+    printf("Hello There !\n");
 	
 	addNode(1);
 	addNode(3);
@@ -25,10 +25,10 @@ int main(){
 	addNode(9);
 
 	printList();
-	printf("%d", size());
-	printf("%d", searchNode(5));
+	printf("%d\n", size());
+	printf("%d\n", searchNode(5));
 	deleteNode(5);
-	printf("%d", searchNode(5));
+	printf("%d\n", searchNode(5));
 
 	printList();
 
@@ -52,7 +52,7 @@ void addNode(int data){
 void deleteNode(int data){
 	struct Node *temp = head;
 	struct Node *prevNode = NULL;
-	while(temp->link != NULL){
+	while(temp != NULL){
 		if (temp->data == data){
 			prevNode->link = temp->link;
 			free(temp);
@@ -65,7 +65,7 @@ void deleteNode(int data){
 bool searchNode(int data){
 	struct Node *temp = head;
 	bool val = false;
-	while(temp->link != NULL){
+	while(temp != NULL){
 		if (temp->data == data){
 			val = true;
 			break;
@@ -78,19 +78,17 @@ bool searchNode(int data){
 int size(){
 	struct Node *temp = head;
 	int counter = 0;
-	while(temp->link != NULL){
+	while(temp != NULL){
 		temp = temp->link;
 		counter++;
 	}
-	counter++;
 	return counter;
 }
 
 void printList(){
 	struct Node *temp = head;
-	while(temp->link != NULL){
-		printf("%d", temp->data);
+	while(temp != NULL){
+		printf("%d\n", temp->data);
 		temp = temp->link;
 	}
-	printf("%d", temp->data);	
 }
