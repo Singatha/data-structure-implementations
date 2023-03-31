@@ -72,7 +72,7 @@ class LinkedList {
     }
 }
 
-let linkedList = new LinkedList();
+const linkedList = new LinkedList();
 
 
 linkedList.addNode(1)
