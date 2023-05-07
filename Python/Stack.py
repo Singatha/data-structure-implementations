@@ -24,7 +24,7 @@ class Stack:
     def pop(self, data):
         temp = self.head
         if temp == None:
-            print("stack Empty!")
+            print("Stack Empty!")
         val = temp.data
         self.head = temp.link
         return val

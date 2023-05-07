@@ -73,19 +73,17 @@ bool isEmpty(){
 int size(){
 	Node *temp = front;
 	int counter = 0;
-	while(temp->link != NULL){
+	while(temp != NULL){
 		temp = temp->link;
 		counter++;
 	}
-	counter++;
 	return counter;
 }
 
 void printList(){
 	Node *temp = front;
-	while(temp->link != NULL){
+	while(temp != NULL){
 		cout << temp->data << endl;
 		temp = temp->link;
 	}
-	cout << temp->data << endl;
 }
