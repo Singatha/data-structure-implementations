@@ -1,4 +1,3 @@
-
 # the compiler: gcc for C program, define as g++ for C++
 CC=gcc
 
@@ -7,13 +6,12 @@ CC=gcc
 #  -Wall  - this flag is used to turn on most compiler warnings
 CFLAGS=-g -Wall
 
-# The build target 
-TARGET=LinkedList
+# The build target
 
 all: $(TARGET)
 
 $(TARGET): $(TARGET).c
 			$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).c
 
-clean:
+clean: $(TARGET)
 			$(RM) $(TARGET)

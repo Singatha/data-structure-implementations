@@ -17,7 +17,6 @@ int size();
 void printList();
 
 int main(){
-    printf("Hello There !\n");
 	printf("%d", isEmpty());
 	push(1);
 	push(3);
@@ -54,15 +53,17 @@ int peek (){
     struct Node *temp = head;
     if (temp != NULL){
         return temp->data;
-    }
+    } else {
+		printf("Stack Empty!");
+	}
 }
 
 int pop(){
     if (head == NULL){
-        printf("throw an error!");
+        printf("Stack Empty!");
     }
-	int data = head.data;
-    head = head->link
+	int data = head->data;
+    head = head->link;
 	return data; 
 }
 
