@@ -16,8 +16,6 @@ int size();
 void printList();
 
 int main(){
-    printf("Hello There !\n");
-	
 	addNode(1);
 	addNode(3);
 	addNode(5);

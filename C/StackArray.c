@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 int stack[10];
 int top = -1;
@@ -10,7 +11,6 @@ bool isEmpty();
 void printList();
 
 int main(){
-	printf("Hello There !\n");
 	printf("%d\n", isEmpty());
 	
 	push(1);

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 int queue[10];
 int front = -1;
@@ -11,7 +12,6 @@ bool isEmpty();
 void printList();
 
 int main(){
-	printf("Hello There !\n");
 	printf("%d\n", isEmpty());
 	
 	enqueue(1);

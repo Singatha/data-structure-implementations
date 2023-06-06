@@ -6,13 +6,12 @@ CC=g++
 #  -Wall  - this flag is used to turn on most compiler warnings
 CPPFLAGS=-g -Wall
 
-# The build target 
-TARGET=LinkedList
+# The build target
 
 all: $(TARGET)
 
 $(TARGET): $(TARGET).cpp
 			$(CC) $(CPPFLAGS) -o $(TARGET) $(TARGET).cpp
 
-clean:
+clean: $(TARGET)
 			$(RM) $(TARGET)

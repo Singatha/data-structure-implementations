@@ -53,10 +53,15 @@ void enqueue(int data){
 int peek(){
 	if (front != NULL){
 		return front->data;
+	} else {
+		printf("Queue Empty!");
 	}
 }
 
 int dequeue(){
+	if (front == NULL){
+		printf("Queue Empty!");
+	}
 	int val = front->data;
 	front = front->link;
 	return val;
