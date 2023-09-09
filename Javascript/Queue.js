@@ -23,9 +23,9 @@ class Queue {
         let temp = new Node(data, null)
         if (this.front === null){
             this.back = temp;
-            this.front = this.back;
+            this.front = temp;
         } else {
-            temp.link = this.back;
+            this.back.setLink(temp)
             this.back = temp;
         }
     }

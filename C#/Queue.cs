@@ -24,14 +24,15 @@ public class Queue
 
     public void enqueue(int data)
     {
+        Node temp = new Node(null, data);
         if (back == null && front == null)
         {
-            back = new Node(null, data);
-            front = back;
+            back = temp;
+            front = temp;
         }
         else
         {
-            Node temp = new Node(back, data);
+            back.link = temp;
             back = temp;
         }
     }

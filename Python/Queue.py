@@ -18,9 +18,9 @@ class Queue:
         temp = Node(data)
         if self.front == None:
             self.back = temp
-            self.front= self.back
+            self.front= temp
         else:
-            temp.link = self.back
+            self.back.set_link(temp)
             self.back = temp
 
     def dequeue(self, data):

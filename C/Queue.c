@@ -41,11 +41,11 @@ void enqueue(int data){
 		temp->data = data;
 		temp->link = NULL;
         back = temp;
-		front = back;
+		front = temp;
 	}
 	else {
 		temp->data = data;
-		temp->link = back;
+		back->link = temp;
 		back = temp;
 	}
 }
