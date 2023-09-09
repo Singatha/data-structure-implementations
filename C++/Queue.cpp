@@ -27,10 +27,10 @@ int main(){
 	enqueue(7);
 	enqueue(9);
 
-	// cout << peek() << endl;
+	cout << peek() << endl;
 	printList();
-	// cout << dequeue() << endl;
-	// cout << isEmpty() << endl;
+	cout << dequeue() << endl;
+	out << isEmpty() << endl;
 	return 0;
 }
 
@@ -40,11 +40,11 @@ void enqueue(int data){
 		temp->data = data;
 		temp->link = NULL;
 		rear = temp;
-		front = rear;
+		front = temp;
 	}
 	else {
 		temp->data = data;
-		temp->link = rear;
+		rear->link = temp;
 		rear = temp;
 	}
 }
@@ -52,10 +52,15 @@ void enqueue(int data){
 int peek(){
 	if (front != NULL){
 		return front->data;
+	} else {
+		cout << "Queue Empty" << endl;
 	}
 }
 
 int dequeue(){
+	if (front == NULL){
+		cout << "Queue Empty" << endl;
+	}
 	int val = front->data;
 	front = front->link;
 	return val;
