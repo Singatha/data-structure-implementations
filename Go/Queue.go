@@ -10,11 +10,12 @@ var front *Node
 var back *Node
 
 func enqueue(data int){
+	temp := &Node{data, (&Node{})}
 	if front == nil {
-		back = &Node{data, (&Node{})}
-		front = back
+		back = temp
+		front = temp
 	} else {
-		temp := &Node{data, back}
+		back.link = temp
 		back = temp
 	}
 }

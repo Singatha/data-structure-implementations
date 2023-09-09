@@ -22,13 +22,13 @@ public class Queue {
 	}
 
 	public void enqueue(int data){
+		Node temp = new Node(data, null);
 		if (front == null){
-			front = new Node(data, null);
-			rear = front;
+			front = temp;
+			rear = temp;
 		}
 		else {
-			Node temp = new Node(data, null);
-			temp.setLink(rear);
+			rear.setLink(temp);
 			rear = temp;
 		}
 	}
